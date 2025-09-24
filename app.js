@@ -1,9 +1,7 @@
 // ===== Juego de Amigo Secreto =====
 
-// Lista donde guardaremos los nombres
 let jugadores = [];
 
-// Función para mostrar la lista en pantalla
 function actualizarLista() {
   const lista = document.getElementById('listaAmigos');
   lista.innerHTML = "";
@@ -20,7 +18,6 @@ function actualizarLista() {
   });
 }
 
-// Agrega un nombre a la lista
 function registrar() {
   const campo = document.getElementById('amigo');
   const nombre = campo.value.trim();
@@ -30,7 +27,6 @@ function registrar() {
     return;
   }
 
-  // Evitar duplicados
   const repetido = jugadores.some(n => n.toLowerCase() === nombre.toLowerCase());
   if (repetido) {
     alert("Ese nombre ya fue ingresado.");
@@ -43,7 +39,6 @@ function registrar() {
   actualizarLista();
 }
 
-// Selecciona un nombre al azar
 function elegirSorpresa() {
   if (jugadores.length < 2) {
     alert("Se necesitan al menos 2 nombres para sortear.");
@@ -57,7 +52,15 @@ function elegirSorpresa() {
   panel.innerHTML = `<li>🎉 El amigo secreto elegido es: <strong>${amigo}</strong></li>`;
 }
 
-// Permite agregar con la tecla Enter
+// Aliases para que el HTML funcione sin cambios
+function agregarAmigo() {
+  registrar();
+}
+
+function sortearAmigo() {
+  elegirSorpresa();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const entrada = document.getElementById('amigo');
   entrada.addEventListener("keypress", (evento) => {
