@@ -69,3 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Hacer visibles las funciones para los onclick del HTML
+window.agregarAmigo = registrar;
+window.sortearAmigo = elegirSorpresa;
